@@ -35,7 +35,17 @@ public class GauntletsSim {
     }
     public static void strike(ArrayList<Player> players){
         int cuts = players.size() - (players.size()%8);
+        int games = cuts / 8;
+        double nonTie_avg = 1;
+        for(int i = 0; i < games; i++){
+            nonTie_avg *= .87;
+        }
         cuts /=2;
+        double big = (Math.random());
+        if(big > nonTie_avg){
+            cuts += 4;
+        }
+        
         ArrayList<Integer> dones = new ArrayList<>();
         for(int i = 0; i < cuts; i++){
             int num;
